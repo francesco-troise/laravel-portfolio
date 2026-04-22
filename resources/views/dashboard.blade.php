@@ -23,7 +23,7 @@
             <hr class="my-4">
 
             <div class="d-flex gap-3">
-                <a href="#" class="btn btn-primary btn-lg px-5 py-3 fw-semibold shadow-sm">
+                <a href="{{ route('projects.index') }}" class="btn btn-primary btn-lg px-5 py-3 fw-semibold shadow-sm">
                     <i class="fa-solid fa-list-check me-2"></i> Vai ai progetti
                 </a>
             </div>
