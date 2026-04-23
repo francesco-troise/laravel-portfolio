@@ -4,6 +4,9 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="fw-bold">Elenco Progetti</h2>
+            <a href="{{ route('projects.create') }}" class="btn btn-primary d-inline-flex align-items-center">
+                <i class="bi bi-plus-lg me-2"></i> <span>Nuovo Progetto</span>
+            </a>
 
         </div>
 
