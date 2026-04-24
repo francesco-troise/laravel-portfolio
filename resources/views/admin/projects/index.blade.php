@@ -19,6 +19,7 @@
                             <th>Descrizione</th>
                             <th>Versione</th>
                             <th class="pe-4">Status</th>
+                            <th>Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +34,7 @@
                                 </td>
 
                                 <td class="text-muted">
-                                    {{ $project->description, 50 }}
+                                    {{ $project->description }}
                                 </td>
 
                                 <td>
@@ -47,6 +48,12 @@
                                         class="badge {{ $project->status == 'finale' ? 'bg-success' : 'bg-warning text-dark' }} fs-6 px-3 py-2">
                                         {{ ucfirst($project->status) }}
                                     </span>
+                                </td>
+                                <td>
+                                    <a class="text-decoration-none text-danger"
+                                        href="{{ route('projects.show', $project) }}">
+                                        <b>Elimina / Modifica</b>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

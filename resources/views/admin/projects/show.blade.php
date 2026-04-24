@@ -50,8 +50,15 @@
             </div>
 
             <div class="card-footer bg-white text-muted small p-3 text-center">
+                <a href="{{ route('projects.edit', $project) }}">Modifica progetto</a>
                 Creato il {{ $project->created_at->format('d/m/Y') }} • Ultima modifica
                 {{ $project->updated_at->diffForHumans() }}
+
+                <form action="{{ route('projects.destroy', $project) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="Elimina progetto">
+                </form>
             </div>
         </div>
     </div>
