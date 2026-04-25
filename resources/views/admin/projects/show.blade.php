@@ -2,10 +2,23 @@
 
 @section('content')
     <div class="container py-5">
-        <div class="mb-4">
+        <div class="mb-4 d-flex align-items-center gap-2">
             <a href="{{ route('projects.index') }}" class="btn btn-outline-secondary btn-sm shadow-sm">
                 <i class="bi bi-arrow-left me-1"></i> Torna alla lista
             </a>
+
+            <a href="{{ route('projects.edit', $project) }}" class="btn btn-warning btn-sm shadow-sm">
+                <i class="bi bi-pencil me-1"></i> Modifica progetto
+            </a>
+
+            <form action="{{ route('projects.destroy', $project) }}" method="POST" class="m-0">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger btn-sm shadow-sm"
+                    onclick="return confirm('Sei sicuro di voler eliminare questo progetto?')">
+                    <i class="bi bi-trash me-1"></i> Elimina progetto
+                </button>
+            </form>
         </div>
 
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
@@ -50,15 +63,11 @@
             </div>
 
             <div class="card-footer bg-white text-muted small p-3 text-center">
-                <a href="{{ route('projects.edit', $project) }}">Modifica progetto</a>
+
                 Creato il {{ $project->created_at->format('d/m/Y') }} • Ultima modifica
                 {{ $project->updated_at->diffForHumans() }}
 
-                <form action="{{ route('projects.destroy', $project) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" value="Elimina progetto">
-                </form>
+
             </div>
         </div>
     </div>
