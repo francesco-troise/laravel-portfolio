@@ -52,10 +52,17 @@
                         <div class="bg-light p-3 rounded-3 shadow-sm mb-4">
                             <h6 class="fw-bold mb-3">Dettagli Tecnici</h6>
                             <div class="mb-3">
-                                <span class="text-muted d-block">Versione attuale:</span>
+                                <span class="text-muted d-block"><b>Versione attuale:</b></span>
                                 <span class="badge bg-secondary px-3 py-2 fs-6 mt-1">
                                     <i class="bi bi-git me-1"></i> v{{ $project->version }}
                                 </span>
+                                <hr>
+                                <span class="text-muted d-block"><b>Tecnologie usate:</b></span>
+                                <ul>
+                                    @foreach ($project->technologies as $technology)
+                                        <li>{{ $technology->name }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
                     </div>

@@ -60,7 +60,7 @@
 
                                 <td>
                                     @foreach ($project->technologies as $technology)
-                                        {{ $technology->name }}
+                                        {{ $technology->name ?? 'Nessuna tecnologia' }}
                                     @endforeach
                                 </td>
 
