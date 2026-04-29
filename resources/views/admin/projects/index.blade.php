@@ -19,6 +19,8 @@
                             <th>Descrizione</th>
                             <th>Versione</th>
                             <th class="pe-4">Status</th>
+                            <th>Tipologia</th>
+                            <th>Tecnologie</th>
                             <th>Azioni</th>
                         </tr>
                     </thead>
@@ -49,12 +51,26 @@
                                         {{ ucfirst($project->status) }}
                                     </span>
                                 </td>
+
+                                <td>
+                                    <span>
+                                        {{ $project->type?->name ?? 'Nessuna Tipologia' }}
+                                    </span>
+                                </td>
+
+                                <td>
+                                    @foreach ($project->technologies as $technology)
+                                        {{ $technology->name }}
+                                    @endforeach
+                                </td>
+
                                 <td>
                                     <a class="text-decoration-none text-danger"
                                         href="{{ route('projects.show', $project) }}">
                                         <b>Elimina / Modifica</b>
                                     </a>
                                 </td>
+
                             </tr>
                         @endforeach
                     </tbody>
